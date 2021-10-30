@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</head>
+<body>
+    <div style="max-width: 500px; max-height: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+</body>
+<script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        plugins: [ChartDataLabels],
+        data: {
+            labels: ['1 (< 18)', '2 (18-40)', '3 (41-59)', '4 (>= 60)'],
+            datasets: [{
+                label: 'Cơ cấu giới tính & độ tuổi của FO',
+                data: [14.05, 58.96, 20.31, 6.68],
+                backgroundColor: [
+                    '#287271',
+                    '#F4A261',
+                    '#8AB17D',
+                    '#E9C46A',
+                ],
+                borderColor: [
+                    '#287271',
+                    '#F4A261',
+                    '#8AB17D',
+                    '#E9C46A',
+                ],
+                borderWidth: 1,
+                hoverOffset: 4,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'right',
+                },
+                datalabels: {
+                    borderColor: 'white',
+                    borderRadius: 25,
+                    borderWidth: 2,
+                    padding: 10,
+                    color: 'white',
+                    labels: {
+                        value: {},
+                        title: {
+                            color: 'white',
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+</html>
